@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eyesight - Centre d'optométrie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#f0b429',secondary:'#1a202c'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+}
+.hero-gradient {
+background: linear-gradient(to right, rgba(26, 32, 44, 0.9) 40%, rgba(26, 32, 44, 0.7) 70%, rgba(26, 32, 44, 0.5) 100%);
+}
+.custom-checkbox {
+appearance: none;
+-webkit-appearance: none;
+width: 18px;
+height: 18px;
+border: 2px solid #e2e8f0;
+border-radius: 4px;
+outline: none;
+cursor: pointer;
+position: relative;
+}
+.custom-checkbox:checked {
+background-color: #f0b429;
+border-color: #f0b429;
+}
+.custom-checkbox:checked::after {
+content: '';
+position: absolute;
+left: 5px;
+top: 2px;
+width: 6px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.custom-range {
+-webkit-appearance: none;
+width: 100%;
+height: 6px;
+border-radius: 5px;
+background: #e2e8f0;
+outline: none;
+}
+.custom-range::-webkit-slider-thumb {
+-webkit-appearance: none;
+appearance: none;
+width: 18px;
+height: 18px;
+border-radius: 50%;
+background: #f0b429;
+cursor: pointer;
+}
+.custom-range::-moz-range-thumb {
+width: 18px;
+height: 18px;
+border-radius: 50%;
+background: #f0b429;
+cursor: pointer;
+border: none;
+}
+.switch {
+position: relative;
+display: inline-block;
+width: 44px;
+height: 24px;
+}
+.switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #e2e8f0;
+transition: .4s;
+border-radius: 24px;
+}
+.slider:before {
+position: absolute;
+content: "";
+height: 18px;
+width: 18px;
+left: 3px;
+bottom: 3px;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .slider {
+background-color: #f0b429;
+}
+input:checked + .slider:before {
+transform: translateX(20px);
+}
+</style>
+</head>
+<body class="bg-white min-h-screen">
+<!-- Navigation -->
+<nav class="bg-white shadow-sm fixed w-full z-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-16">
+<div class="flex items-center">
+<div class="flex-shrink-0 flex items-center">
+<img src="https://static.readdy.ai/image/4a6f41b52e0b005344d1b9b57b0ed2ec/7617216088f5af7bcb48efec1e6015a8.jpeg" alt="Eyesight Logo" class="w-10 h-10 mr-2">
+<span class="text-xl font-bold text-gray-900">EYESIGHT</span>
+</div>
+<div class="hidden md:ml-6 md:flex md:space-x-8">
+<a href="#" class="border-primary text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Home</a>
+<a href="#" id="eyewearLink" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Eyewear</a>
+<a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Services</a>
+<a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">About</a>
+<a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Contact</a>
+</div>
+</div>
+<div class="flex items-center">
+<div class="flex-shrink-0 flex items-center space-x-4">
+<div class="w-10 h-10 flex items-center justify-center">
+<i class="ri-search-line text-gray-500 text-xl"></i>
+</div>
+<div class="w-10 h-10 flex items-center justify-center">
+<i class="ri-user-line text-gray-500 text-xl"></i>
+</div>
+<div class="w-10 h-10 flex items-center justify-center relative">
+<i class="ri-shopping-bag-line text-gray-500 text-xl"></i>
+<span class="absolute top-1 right-1 bg-primary text-white text-xs w-4 h-4 flex items-center justify-center rounded-full">3</span>
+</div>
+</div>
+<div class="md:hidden ml-4">
+<button type="button" class="bg-white p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none">
+<i class="ri-menu-line text-xl"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<!-- Page 1: Landing Page -->
+<div id="landing-page" class="pt-16">
+<!-- Hero Section -->
+<div class="relative h-[600px] overflow-hidden">
+<div style="background-image: url('https://readdy.ai/api/search-image?query=luxury%20eyewear%20store%20interior%20with%20elegant%20display%20of%20designer%20glasses%20and%20sunglasses%2C%20soft%20lighting%2C%20minimalist%20design%2C%20high-end%20optical%20shop%20with%20gold%20accents%2C%20professional%20atmosphere%2C%20clean%20modern%20space&width=1600&height=900&seq=1&orientation=landscape');" class="absolute inset-0 bg-cover bg-center"></div>
+<div class="absolute inset-0 hero-gradient"></div>
+<div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
+<div class="max-w-xl">
+<h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">See the world in perfect clarity</h1>
+<p class="mt-6 text-xl text-gray-100">Premium eyewear tailored to your unique style and vision needs. Discover our collection of designer frames and expert optometric services.</p>
+<div class="mt-10 flex space-x-4">
+<a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium !rounded-button shadow-sm text-white bg-primary hover:bg-primary/90 whitespace-nowrap">Shop Collection</a>
+<a href="#" class="inline-flex items-center px-6 py-3 border border-white text-base font-medium !rounded-button shadow-sm text-white hover:bg-white/10 whitespace-nowrap">Book Eye Exam</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Categories Section -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+<h2 class="text-3xl font-bold text-gray-900 text-center mb-12">Explore Our Collections</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+<div class="aspect-w-3 aspect-h-2 h-80">
+<img src="https://readdy.ai/api/search-image?query=elegant%20prescription%20glasses%20displayed%20on%20minimal%20background%2C%20luxury%20eyewear%20with%20sophisticated%20frames%2C%20high-end%20optical%20product%20photography%20with%20soft%20lighting%2C%20designer%20spectacles%20with%20clear%20lenses&width=600&height=800&seq=2&orientation=portrait" alt="Prescription Glasses" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-70"></div>
+<div class="absolute bottom-0 left-0 right-0 p-6">
+<h3 class="text-xl font-bold text-white">Prescription Glasses</h3>
+<p class="text-gray-200 mt-2">Stylish frames with precision lenses</p>
+<a href="#" class="mt-4 inline-flex items-center text-primary font-medium">
+Explore Collection
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+<div class="aspect-w-3 aspect-h-2 h-80">
+<img src="https://readdy.ai/api/search-image?query=luxury%20sunglasses%20on%20minimal%20background%2C%20high-end%20designer%20sunglasses%20with%20gold%20accents%2C%20premium%20eyewear%20product%20photography%20with%20soft%20lighting%2C%20sophisticated%20sun%20protection%20eyewear&width=600&height=800&seq=3&orientation=portrait" alt="Sunglasses" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-70"></div>
+<div class="absolute bottom-0 left-0 right-0 p-6">
+<h3 class="text-xl font-bold text-white">Sunglasses</h3>
+<p class="text-gray-200 mt-2">Protection with designer style</p>
+<a href="#" class="mt-4 inline-flex items-center text-primary font-medium">
+Explore Collection
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+<div class="aspect-w-3 aspect-h-2 h-80">
+<img src="https://readdy.ai/api/search-image?query=premium%20contact%20lenses%20with%20elegant%20packaging%2C%20high-end%20optical%20products%20on%20minimal%20background%2C%20luxury%20eye%20care%20solutions%20with%20sophisticated%20presentation%2C%20designer%20contact%20lens%20products%20with%20soft%20lighting&width=600&height=800&seq=4&orientation=portrait" alt="Contact Lenses" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-70"></div>
+<div class="absolute bottom-0 left-0 right-0 p-6">
+<h3 class="text-xl font-bold text-white">Contact Lenses</h3>
+<p class="text-gray-200 mt-2">Comfort and clarity for everyday</p>
+<a href="#" class="mt-4 inline-flex items-center text-primary font-medium">
+Explore Collection
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Featured Products -->
+<div class="bg-gray-50 py-16">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-3xl font-bold text-gray-900 text-center mb-4">Featured Products</h2>
+<p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Discover our most popular frames and lenses, selected for their exceptional quality and timeless style.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
+<div class="aspect-w-1 aspect-h-1 h-64">
+<img src="https://readdy.ai/api/search-image?query=luxury%20round%20gold%20frame%20glasses%20on%20minimal%20background%2C%20premium%20eyewear%20product%20photography%20with%20soft%20lighting%2C%20sophisticated%20optical%20frames%20with%20clear%20lenses&width=500&height=500&seq=5&orientation=squarish" alt="Aviator Gold" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<h3 class="text-lg font-medium text-gray-900">Aviator Gold</h3>
+<p class="text-gray-500 text-sm mt-1">Classic Frame</p>
+<div class="mt-2 flex justify-between items-center">
+<span class="text-lg font-bold text-gray-900">$189.00</span>
+<button class="inline-flex items-center px-3 py-1 !rounded-button text-sm font-medium bg-primary text-white hover:bg-primary/90 whitespace-nowrap">Add to Cart</button>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
+<div class="aspect-w-1 aspect-h-1 h-64">
+<img src="https://readdy.ai/api/search-image?query=luxury%20square%20black%20frame%20glasses%20on%20minimal%20background%2C%20premium%20eyewear%20product%20photography%20with%20soft%20lighting%2C%20sophisticated%20optical%20frames%20with%20clear%20lenses&width=500&height=500&seq=6&orientation=squarish" alt="Modern Square" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<h3 class="text-lg font-medium text-gray-900">Modern Square</h3>
+<p class="text-gray-500 text-sm mt-1">Contemporary Frame</p>
+<div class="mt-2 flex justify-between items-center">
+<span class="text-lg font-bold text-gray-900">$215.00</span>
+<button class="inline-flex items-center px-3 py-1 !rounded-button text-sm font-medium bg-primary text-white hover:bg-primary/90 whitespace-nowrap">Add to Cart</button>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
+<div class="aspect-w-1 aspect-h-1 h-64">
+<img src="https://readdy.ai/api/search-image?query=luxury%20cat-eye%20tortoise%20frame%20glasses%20on%20minimal%20background%2C%20premium%20eyewear%20product%20photography%20with%20soft%20lighting%2C%20sophisticated%20optical%20frames%20with%20clear%20lenses&width=500&height=500&seq=7&orientation=squarish" alt="Cat-Eye Tortoise" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<h3 class="text-lg font-medium text-gray-900">Cat-Eye Tortoise</h3>
+<p class="text-gray-500 text-sm mt-1">Designer Frame</p>
+<div class="mt-2 flex justify-between items-center">
+<span class="text-lg font-bold text-gray-900">$245.00</span>
+<button class="inline-flex items-center px-3 py-1 !rounded-button text-sm font-medium bg-primary text-white hover:bg-primary/90 whitespace-nowrap">Add to Cart</button>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
+<div class="aspect-w-1 aspect-h-1 h-64">
+<img src="https://readdy.ai/api/search-image?query=luxury%20rimless%20titanium%20frame%20glasses%20on%20minimal%20background%2C%20premium%20eyewear%20product%20photography%20with%20soft%20lighting%2C%20sophisticated%20optical%20frames%20with%20clear%20lenses&width=500&height=500&seq=8&orientation=squarish" alt="Rimless Titanium" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<h3 class="text-lg font-medium text-gray-900">Rimless Titanium</h3>
+<p class="text-gray-500 text-sm mt-1">Lightweight Frame</p>
+<div class="mt-2 flex justify-between items-center">
+<span class="text-lg font-bold text-gray-900">$275.00</span>
+<button class="inline-flex items-center px-3 py-1 !rounded-button text-sm font-medium bg-primary text-white hover:bg-primary/90 whitespace-nowrap">Add to Cart</button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12 text-center">
+<a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium !rounded-button shadow-sm text-white bg-primary hover:bg-primary/90 whitespace-nowrap">View All Products</a>
+</div>
+</div>
+</div>
+<!-- Services Section -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+<h2 class="text-3xl font-bold text-gray-900 text-center mb-4">Our Services</h2>
+<p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">We provide comprehensive eye care services to ensure your vision health and comfort.</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-eye-line text-primary text-2xl"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-900 mb-2">Comprehensive Eye Exams</h3>
+<p class="text-gray-600">Our thorough eye examinations assess your vision and eye health using the latest technology.</p>
+<a href="#" class="mt-4 inline-flex items-center text-primary font-medium">
+Learn More
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-glasses-line text-primary text-2xl"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-900 mb-2">Custom Fitting</h3>
+<p class="text-gray-600">We ensure your frames fit perfectly with professional adjustments and personalized service.</p>
+<a href="#" class="mt-4 inline-flex items-center text-primary font-medium">
+Learn More
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-first-aid-kit-line text-primary text-2xl"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-900 mb-2">Eye Health Management</h3>
+<p class="text-gray-600">We provide specialized care for conditions like dry eye, glaucoma, and macular degeneration.</p>
+<a href="#" class="mt-4 inline-flex items-center text-primary font-medium">
+Learn More
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+</div>
+<!-- Testimonials -->
+<div class="bg-gray-50 py-16">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-3xl font-bold text-gray-900 text-center mb-12">What Our Clients Say</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white p-6 rounded-lg shadow-md">
+<div class="flex items-center mb-4">
+<div class="text-primary">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<p class="text-gray-600 mb-4">"The team at Eyesight provided exceptional service. My new glasses are perfect, and the eye exam was thorough and informative. Highly recommend!"</p>
+<div class="flex items-center">
+<div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center mr-3">
+<i class="ri-user-line text-gray-500"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-900">Rebecca Anderson</h4>
+<p class="text-sm text-gray-500">Customer since 2022</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md">
+<div class="flex items-center mb-4">
+<div class="text-primary">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<p class="text-gray-600 mb-4">"I've been wearing glasses for 20 years, and this is by far the best experience I've had. The selection is amazing, and the staff is knowledgeable and friendly."</p>
+<div class="flex items-center">
+<div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center mr-3">
+<i class="ri-user-line text-gray-500"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-900">Michael Thompson</h4>
+<p class="text-sm text-gray-500">Customer since 2020</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md">
+<div class="flex items-center mb-4">
+<div class="text-primary">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<p class="text-gray-600 mb-4">"The optometrist took the time to explain everything about my eye health. The frame selection process was enjoyable, and I love my new designer glasses!"</p>
+<div class="flex items-center">
+<div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center mr-3">
+<i class="ri-user-line text-gray-500"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-900">Sophia Martinez</h4>
+<p class="text-sm text-gray-500">Customer since 2021</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- CTA Section -->
+<div class="bg-gray-900 py-16">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<h2 class="text-3xl font-bold text-white mb-4">Ready to Experience Premium Eyecare?</h2>
+<p class="text-gray-300 max-w-2xl mx-auto mb-8">Book an appointment today and discover the perfect eyewear for your style and vision needs.</p>
+<div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+<a href="#" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium !rounded-button shadow-sm text-white bg-primary hover:bg-primary/90 whitespace-nowrap">Book Appointment</a>
+<a href="#" class="inline-flex items-center justify-center px-6 py-3 border border-white text-base font-medium !rounded-button shadow-sm text-white hover:bg-white/10 whitespace-nowrap">Contact Us</a>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div>
+<div class="flex items-center">
+<img src="https://static.readdy.ai/image/4a6f41b52e0b005344d1b9b57b0ed2ec/7617216088f5af7bcb48efec1e6015a8.jpeg" alt="Eyesight Logo" class="w-10 h-10 mr-2">
+<span class="text-xl font-bold text-gray-900">EYESIGHT</span>
+</div>
+<p class="text-gray-600 mt-4">Premium eyewear and professional optometric services for all your vision needs.</p>
+<div class="flex space-x-4 mt-6">
+<a href="#" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white">
+<i class="ri-instagram-line"></i>
+</a>
+<a href="#" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white">
+<i class="ri-twitter-x-line"></i>
+</a>
+</div>
+</div>
+<div>
+<h3 class="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">Products</h3>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-600 hover:text-primary">Prescription Glasses</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Sunglasses</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Contact Lenses</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Reading Glasses</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Accessories</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">Services</h3>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-600 hover:text-primary">Eye Examinations</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Contact Lens Fitting</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Frame Adjustments</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Eye Health Consultations</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Vision Therapy</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">Contact Us</h3>
+<ul class="space-y-2">
+<li class="flex items-start">
+<i class="ri-map-pin-line text-primary mt-1 mr-2"></i>
+<span class="text-gray-600">123 Vision Street, Eyecare City, EC 12345</span>
+</li>
+<li class="flex items-center">
+<i class="ri-phone-line text-primary mr-2"></i>
+<span class="text-gray-600">+1 (555) 123-4567</span>
+</li>
+<li class="flex items-center">
+<i class="ri-mail-line text-primary mr-2"></i>
+<span class="text-gray-600">info@eyesight.com</span>
+</li>
+<li class="flex items-center">
+<i class="ri-time-line text-primary mr-2"></i>
+<span class="text-gray-600">Mon-Fri: 9am-6pm, Sat: 10am-4pm</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-500 text-sm">© 2025 Eyesight Centre d'optométrie. All rights reserved.</p>
+<div class="flex space-x-6 mt-4 md:mt-0">
+<a href="#" class="text-gray-500 hover:text-gray-900 text-sm">Privacy Policy</a>
+<a href="#" class="text-gray-500 hover:text-gray-900 text-sm">Terms of Service</a>
+<a href="#" class="text-gray-500 hover:text-gray-900 text-sm">Sitemap</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<!-- Page 2: Product Display Page -->
+<div id="product-page" class="hidden pt-16">
+<!-- Breadcrumb -->
+<div class="bg-gray-50 py-4">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<nav class="flex">
+<ol class="flex items-center space-x-2">
+<li>
+<a href="#" class="text-gray-500 hover:text-gray-900">Home</a>
+</li>
+<li class="flex items-center">
+<i class="ri-arrow-right-s-line text-gray-400 mx-1"></i>
+<a href="#" class="text-gray-500 hover:text-gray-900">Eyewear</a>
+</li>
+<li class="flex items-center">
+<i class="ri-arrow-right-s-line text-gray-400 mx-1"></i>
+<span class="text-gray-900 font-medium">Prescription Glasses</span>
+</li>
+</ol>
+</nav>
+</div>
+</div>
+<!-- Main Content -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="flex flex-col md:flex-row">
+<!-- Sidebar Filters -->
+<div class="w-full md:w-64 md:mr-8">
+<div class="bg-white p-6 rounded-lg shadow-sm sticky top-24">
+<h2 class="text-lg font-bold text-gray-900 mb-4">Filters</h2>
+<!-- Frame Style -->
+<div class="mb-6">
+<h3 class="text-sm font-medium text-gray-900 mb-2">Frame Style</h3>
+<div class="space-y-2">
+<label class="flex items-center">
+<input type="checkbox" class="custom-checkbox">
+<span class="ml-2 text-gray-600">Round</span>
+</label>
+<label class="flex items-center">
+<input type="checkbox" class="custom-checkbox" checked>
+<span class="ml-2 text-gray-600">Square</span>
+</label>
+<label class="flex items-center">
+<input type="checkbox" class="custom-checkbox">
+<span class="ml-2 text-gray-600">Cat Eye</span>
+</label>
+<label class="flex items-center">
+<input type="checkbox" class="custom-checkbox">
+<span class="ml-2 text-gray-600">Aviator</span>
+</label>
+<label class="flex items-center">
+<input type="checkbox" class="custom-checkbox">
+<span class="ml-2 text-gray-600">Rimless</span>
+</label>
+</div>
+</div>
+<!-- Material -->
+<div class="mb-6">
+<h3 class="text-sm font-medium text-gray-900 mb-2">Material</h3>
+<div class="space-y-2">
+<label class="flex items-center">
+<input type="checkbox" class="custom-checkbox" checked>
+<span class="ml-2 text-gray-600">Metal</span>
+</label>
+<label class="flex items-center">
+<input type="checkbox" class="custom-checkbox">
+<span class="ml-2 text-gray-600">Acetate</span>
+</label>
+<label class="flex items-center">
+<input type="checkbox" class="custom-checkbox">
+<span class="ml-2 text-gray-600">Titanium</span>
+</label>
+<label class="flex items-center">
+<input type="checkbox" class="custom-checkbox">
+<span class="ml-2 text-gray-600">Plastic</span>
+</label>
+</div>
+</div>
+<!-- Brand -->
+<div class="mb-6">
+<h3 class="text-sm font-medium text-gray-900 mb-2">Brand</h3>
+<div class="space-y-2">
+<label class="flex items-center">
+<input type="checkbox" class="custom-checkbox">
+<span class="ml-2 text-gray-600">Ray-Ban</span>
+</label>
+<label class="flex items-center">
+<input type="checkbox" class="custom-checkbox" checked>
+<span class="ml-2 text-gray-600">Oakley</span>
+</label>
+<label class="flex items-center">
+<input type="checkbox" class="custom-checkbox">
+<span class="ml-2 text-gray-600">Gucci</span>
+</label>
+<label class="flex items-center">
+<input type="checkbox" class="custom-checkbox">
+<span class="ml-2 text-gray-600">Prada</span>
+</label>
+<label class="flex items-center">
+<input type="checkbox" class="custom-checkbox">
+<span class="ml-2 text-gray-600">Tom Ford</span>
+</label>
+</div>
+</div>
+<!-- Price Range -->
+<div class="mb-6">
+<h3 class="text-sm font-medium text-gray-900 mb-2">Price Range</h3>
+<input type="range" min="50" max="500" value="250" class="custom-range mb-2" id="priceRange">
+<div class="flex justify-between text-xs text-gray-500">
+<span>$50</span>
+<span id="priceValue">$250</span>
+<span>$500</span>
+</div>
+</div>
+<!-- Color -->
+<div class="mb-6">
+<h3 class="text-sm font-medium text-gray-900 mb-2">Color</h3>
+<div class="flex flex-wrap gap-2">
+<button class="w-6 h-6 rounded-full bg-black border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"></button>
+<button class="w-6 h-6 rounded-full bg-gray-500 border-2 border-gray-300 focus:outline-none"></button>
+<button class="w-6 h-6 rounded-full bg-amber-700 border-2 border-gray-300 focus:outline-none"></button>
+<button class="w-6 h-6 rounded-full bg-blue-500 border-2 border-gray-300 focus:outline-none"></button>
+<button class="w-6 h-6 rounded-full bg-red-500 border-2 border-gray-300 focus:outline-none"></button>
+<button class="w-6 h-6 rounded-full bg-green-500 border-2 border-gray-300 focus:outline-none"></button>
+<button class="w-6 h-6 rounded-full bg-purple-500 border-2 border-gray-300 focus:outline-none"></button>
+<button class="w-6 h-6 rounded-full bg-pink-500 border-2 border-gray-300 focus:outline-none"></button>
+</div>
+</div>
+<!-- Face Shape -->
+<div class="mb-6">
+<h3 class="text-sm font-medium text-gray-900 mb-2">Face Shape</h3>
+<div class="space-y-2">
+<label class="flex items-center">
+<input type="radio" name="faceShape" class="custom-checkbox">
+<span class="ml-2 text-gray-600">Oval</span>
+</label>
+<label class="flex items-center">
+<input type="radio" name="faceShape" class="custom-checkbox" checked>
+<span class="ml-2 text-gray-600">Round</span>
+</label>
+<label class="flex items-center">
+<input type="radio" name="faceShape" class="custom-checkbox">
+<span class="ml-2 text-gray-600">Square</span>
+</label>
+<label class="flex items-center">
+<input type="radio" name="faceShape" class="custom-checkbox">
+<span class="ml-2 text-gray-600">Heart</span>
+</label>
+<label class="flex items-center">
+<input type="radio" name="faceShape" class="custom-checkbox">
+<span class="ml-2 text-gray-600">Diamond</span>
+</label>
+</div>
+</div>
+<!-- Reset Filters -->
+<button class="w-full py-2 !rounded-button border border-gray-300 text-gray-700 hover:bg-gray-50 whitespace-nowrap">Reset Filters</button>
+</div>
+</div>
+<!-- Product Grid -->
+<div class="flex-1 mt-8 md:mt-0">
+<!-- Top Bar -->
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
+<div>
+<h1 class="text-2xl font-bold text-gray-900">Prescription Glasses</h1>
+<p class="text-gray-600 mt-1">Showing 1-12 of 48 products</p>
+</div>
+<div class="flex items-center mt-4 sm:mt-0">
+<span class="text-gray-600 mr-2">Sort by:</span>
+<div class="relative">
+<button class="bg-white border border-gray-300 rounded-md py-1.5 pl-3 pr-10 text-sm text-gray-700 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary">
+Featured
+<i class="ri-arrow-down-s-line absolute right-3 top-1/2 transform -translate-y-1/2"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Quick Filters -->
+<div class="flex flex-wrap gap-2 mb-6">
+<button class="px-3 py-1 !rounded-full bg-primary text-white text-sm whitespace-nowrap">All Frames</button>
+<button class="px-3 py-1 !rounded-full bg-gray-100 text-gray-700 text-sm hover:bg-gray-200 whitespace-nowrap">New Arrivals</button>
+<button class="px-3 py-1 !rounded-full bg-gray-100 text-gray-700 text-sm hover:bg-gray-200 whitespace-nowrap">Bestsellers</button>
+<button class="px-3 py-1 !rounded-full bg-gray-100 text-gray-700 text-sm hover:bg-gray-200 whitespace-nowrap">Sale</button>
+<button class="px-3 py-1 !rounded-full bg-gray-100 text-gray-700 text-sm hover:bg-gray-200 whitespace-nowrap">Premium</button>
+</div>
+<!-- Products Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Product 1 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 group">
+<div class="relative">
+<div class="aspect-w-1 aspect-h-1 h-64">
+<img src="https://readdy.ai/api/search-image?query=luxury%20round%20gold%20frame%20glasses%20on%20minimal%20white%20background%2C%20premium%20eyewear%20product%20photography%20with%20soft%20lighting%2C%20sophisticated%20optical%20frames%20with%20clear%20lenses&width=500&height=500&seq=9&orientation=squarish" alt="Aviator Gold" class="w-full h-full object-cover object-top">
+</div>
+<div class="absolute top-2 left-2">
+<span class="bg-primary text-white text-xs px-2 py-1 rounded">New</span>
+</div>
+<div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-white text-gray-900 px-4 py-2 !rounded-button text-sm font-medium hover:bg-gray-100 whitespace-nowrap">Quick View</button>
+</div>
+</div>
+<div class="p-4">
+<h3 class="text-lg font-medium text-gray-900">Aviator Gold</h3>
+<p class="text-gray-500 text-sm mt-1">Classic Frame</p>
+<div class="mt-2 flex justify-between items-center">
+<span class="text-lg font-bold text-gray-900">$189.00</span>
+<div class="flex space-x-2">
+<button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-gray-200">
+<i class="ri-heart-line"></i>
+</button>
+<button class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary/90">
+<i class="ri-shopping-bag-line"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 group">
+<div class="relative">
+<div class="aspect-w-1 aspect-h-1 h-64">
+<img src="https://readdy.ai/api/search-image?query=luxury%20square%20black%20frame%20glasses%20on%20minimal%20white%20background%2C%20premium%20eyewear%20product%20photography%20with%20soft%20lighting%2C%20sophisticated%20optical%20frames%20with%20clear%20lenses&width=500&height=500&seq=10&orientation=squarish" alt="Modern Square" class="w-full h-full object-cover object-top">
+</div>
+<div class="absolute top-2 left-2">
+<span class="bg-amber-500 text-white text-xs px-2 py-1 rounded">Bestseller</span>
+</div>
+<div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-white text-gray-900 px-4 py-2 !rounded-button text-sm font-medium hover:bg-gray-100 whitespace-nowrap">Quick View</button>
+</div>
+</div>
+<div class="p-4">
+<h3 class="text-lg font-medium text-gray-900">Modern Square</h3>
+<p class="text-gray-500 text-sm mt-1">Contemporary Frame</p>
+<div class="mt-2 flex justify-between items-center">
+<span class="text-lg font-bold text-gray-900">$215.00</span>
+<div class="flex space-x-2">
+<button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-gray-200">
+<i class="ri-heart-line"></i>
+</button>
+<button class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary/90">
+<i class="ri-shopping-bag-line"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 group">
+<div class="relative">
+<div class="aspect-w-1 aspect-h-1 h-64">
+<img src="https://readdy.ai/api/search-image?query=luxury%20cat-eye%20tortoise%20frame%20glasses%20on%20minimal%20white%20background%2C%20premium%20eyewear%20product%20photography%20with%20soft%20lighting%2C%20sophisticated%20optical%20frames%20with%20clear%20lenses&width=500&height=500&seq=11&orientation=squarish" alt="Cat-Eye Tortoise" class="w-full h-full object-cover object-top">
+</div>
+<div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-white text-gray-900 px-4 py-2 !rounded-button text-sm font-medium hover:bg-gray-100 whitespace-nowrap">Quick View</button>
+</div>
+</div>
+<div class="p-4">
+<h3 class="text-lg font-medium text-gray-900">Cat-Eye Tortoise</h3>
+<p class="text-gray-500 text-sm mt-1">Designer Frame</p>
+<div class="mt-2 flex justify-between items-center">
+<span class="text-lg font-bold text-gray-900">$245.00</span>
+<div class="flex space-x-2">
+<button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-gray-200">
+<i class="ri-heart-line"></i>
+</button>
+<button class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary/90">
+<i class="ri-shopping-bag-line"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 group">
+<div class="relative">
+<div class="aspect-w-1 aspect-h-1 h-64">
+<img src="https://readdy.ai/api/search-image?query=luxury%20rimless%20titanium%20frame%20glasses%20on%20minimal%20white%20background%2C%20premium%20eyewear%20product%20photography%20with%20soft%20lighting%2C%20sophisticated%20optical%20frames%20with%20clear%20lenses&width=500&height=500&seq=12&orientation=squarish" alt="Rimless Titanium" class="w-full h-full object-cover object-top">
+</div>
+<div class="absolute top-2 left-2">
+<span class="bg-red-500 text-white text-xs px-2 py-1 rounded">Sale</span>
+</div>
+<div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-white text-gray-900 px-4 py-2 !rounded-button text-sm font-medium hover:bg-gray-100 whitespace-nowrap">Quick View</button>
+</div>
+</div>
+<div class="p-4">
+<h3 class="text-lg font-medium text-gray-900">Rimless Titanium</h3>
+<p class="text-gray-500 text-sm mt-1">Lightweight Frame</p>
+<div class="mt-2 flex justify-between items-center">
+<div>
+<span class="text-lg font-bold text-gray-900">$199.00</span>
+<span class="text-sm text-gray-500 line-through ml-2">$275.00</span>
+</div>
+<div class="flex space-x-2">
+<button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-gray-200">
+<i class="ri-heart-line"></i>
+</button>
+<button class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary/90">
+<i class="ri-shopping-bag-line"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 5 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 group">
+<div class="relative">
+<div class="aspect-w-1 aspect-h-1 h-64">
+<img src="https://readdy.ai/api/search-image?query=luxury%20oval%20silver%20frame%20glasses%20on%20minimal%20white%20background%2C%20premium%20eyewear%20product%20photography%20with%20soft%20lighting%2C%20sophisticated%20optical%20frames%20with%20clear%20lenses&width=500&height=500&seq=13&orientation=squarish" alt="Oval Silver" class="w-full h-full object-cover object-top">
+</div>
+<div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-white text-gray-900 px-4 py-2 !rounded-button text-sm font-medium hover:bg-gray-100 whitespace-nowrap">Quick View</button>
+</div>
+</div>
+<div class="p-4">
+<h3 class="text-lg font-medium text-gray-900">Oval Silver</h3>
+<p class="text-gray-500 text-sm mt-1">Elegant Frame</p>
+<div class="mt-2 flex justify-between items-center">
+<span class="text-lg font-bold text-gray-900">$225.00</span>
+<div class="flex space-x-2">
+<button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-gray-200">
+<i class="ri-heart-line"></i>
+</button>
+<button class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary/90">
+<i class="ri-shopping-bag-line"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 6 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 group">
+<div class="relative">
+<div class="aspect-w-1 aspect-h-1 h-64">
+<img src="https://readdy.ai/api/search-image?query=luxury%20rectangular%20blue%20frame%20glasses%20on%20minimal%20white%20background%2C%20premium%20eyewear%20product%20photography%20with%20soft%20lighting%2C%20sophisticated%20optical%20frames%20with%20clear%20lenses&width=500&height=500&seq=14&orientation=squarish" alt="Rectangular Blue" class="w-full h-full object-cover object-top">
+</div>
+<div class="absolute top-2 left-2">
+<span class="bg-primary text-white text-xs px-2 py-1 rounded">New</span>
+</div>
+<div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-white text-gray-900 px-4 py-2 !rounded-button text-sm font-medium hover:bg-gray-100 whitespace-nowrap">Quick View</button>
+</div>
+</div>
+<div class="p-4">
+<h3 class="text-lg font-medium text-gray-900">Rectangular Blue</h3>
+<p class="text-gray-500 text-sm mt-1">Modern Frame</p>
+<div class="mt-2 flex justify-between items-center">
+<span class="text-lg font-bold text-gray-900">$235.00</span>
+<div class="flex space-x-2">
+<button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-gray-200">
+<i class="ri-heart-line"></i>
+</button>
+<button class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary/90">
+<i class="ri-shopping-bag-line"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 7 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 group">
+<div class="relative">
+<div class="aspect-w-1 aspect-h-1 h-64">
+<img src="https://readdy.ai/api/search-image?query=luxury%20round%20tortoise%20frame%20glasses%20on%20minimal%20white%20background%2C%20premium%20eyewear%20product%20photography%20with%20soft%20lighting%2C%20sophisticated%20optical%20frames%20with%20clear%20lenses&width=500&height=500&seq=15&orientation=squarish" alt="Round Tortoise" class="w-full h-full object-cover object-top">
+</div>
+<div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-white text-gray-900 px-4 py-2 !rounded-button text-sm font-medium hover:bg-gray-100 whitespace-nowrap">Quick View</button>
+</div>
+</div>
+<div class="p-4">
+<h3 class="text-lg font-medium text-gray-900">Round Tortoise</h3>
+<p class="text-gray-500 text-sm mt-1">Vintage Frame</p>
+<div class="mt-2 flex justify-between items-center">
+<span class="text-lg font-bold text-gray-900">$195.00</span>
+<div class="flex space-x-2">
+<button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-gray-200">
+<i class="ri-heart-line"></i>
+</button>
+<button class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary/90">
+<i class="ri-shopping-bag-line"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 8 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 group">
+<div class="relative">
+<div class="aspect-w-1 aspect-h-1 h-64">
+<img src="https://readdy.ai/api/search-image?query=luxury%20square%20red%20frame%20glasses%20on%20minimal%20white%20background%2C%20premium%20eyewear%20product%20photography%20with%20soft%20lighting%2C%20sophisticated%20optical%20frames%20with%20clear%20lenses&width=500&height=500&seq=16&orientation=squarish" alt="Square Red" class="w-full h-full object-cover object-top">
+</div>
+<div class="absolute top-2 left-2">
+<span class="bg-amber-500 text-white text-xs px-2 py-1 rounded">Bestseller</span>
+</div>
+<div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-white text-gray-900 px-4 py-2 !rounded-button text-sm font-medium hover:bg-gray-100 whitespace-nowrap">Quick View</button>
+</div>
+</div>
+<div class="p-4">
+<h3 class="text-lg font-medium text-gray-900">Square Red</h3>
+<p class="text-gray-500 text-sm mt-1">Bold Frame</p>
+<div class="mt-2 flex justify-between items-center">
+<span class="text-lg font-bold text-gray-900">$220.00</span>
+<div class="flex space-x-2">
+<button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-gray-200">
+<i class="ri-heart-line"></i>
+</button>
+<button class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary/90">
+<i class="ri-shopping-bag-line"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 9 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 group">
+<div class="relative">
+<div class="aspect-w-1 aspect-h-1 h-64">
+<img src="https://readdy.ai/api/search-image?query=luxury%20half-rim%20black%20frame%20glasses%20on%20minimal%20white%20background%2C%20premium%20eyewear%20product%20photography%20with%20soft%20lighting%2C%20sophisticated%20optical%20frames%20with%20clear%20lenses&width=500&height=500&seq=17&orientation=squarish" alt="Half-Rim Black" class="w-full h-full object-cover object-top">
+</div>
+<div class="absolute top-2 left-2">
+<span class="bg-red-500 text-white text-xs px-2 py-1 rounded">Sale</span>
+</div>
+<div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-white text-gray-900 px-4 py-2 !rounded-button text-sm font-medium hover:bg-gray-100 whitespace-nowrap">Quick View</button>
+</div>
+</div>
+<div class="p-4">
+<h3 class="text-lg font-medium text-gray-900">Half-Rim Black</h3>
+<p class="text-gray-500 text-sm mt-1">Professional Frame</p>
+<div class="mt-2 flex justify-between items-center">
+<div>
+<span class="text-lg font-bold text-gray-900">$175.00</span>
+<span class="text-sm text-gray-500 line-through ml-2">$230.00</span>
+</div>
+<div class="flex space-x-2">
+<button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-gray-200">
+<i class="ri-heart-line"></i>
+</button>
+<button class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary/90">
+<i class="ri-shopping-bag-line"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-12 flex justify-center">
+<nav class="flex items-center">
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 mr-2 text-gray-500 hover:bg-gray-50">
+<i class="ri-arrow-left-s-line"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary text-white mr-2">1</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 mr-2 text-gray-700 hover:bg-gray-50">2</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 mr-2 text-gray-700 hover:bg-gray-50">3</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 mr-2 text-gray-700 hover:bg-gray-50">4</a>
+<span class="mx-2 text-gray-500">...</span>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 mr-2 text-gray-700 hover:bg-gray-50">8</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 text-gray-500 hover:bg-gray-50">
+<i class="ri-arrow-right-s-line"></i>
+</a>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Page Switcher (for demo purposes) -->
+<div class="fixed bottom-4 right-4 z-50 flex space-x-2">
+<button id="showLanding" class="px-4 py-2 !rounded-button bg-primary text-white shadow-lg hover:bg-primary/90 whitespace-nowrap">Landing Page</button>
+<button id="showProduct" class="px-4 py-2 !rounded-button bg-gray-800 text-white shadow-lg hover:bg-gray-700 whitespace-nowrap">Product Page</button>
+</div>
+<!-- Back to Top Button -->
+<button id="backToTop" class="fixed bottom-4 left-4 z-50 w-10 h-10 rounded-full bg-primary text-white shadow-lg flex items-center justify-center opacity-0 transition-opacity duration-300 hover:bg-primary/90">
+<i class="ri-arrow-up-line"></i>
+</button>
+<!-- Scripts -->
+<script id="pageToggleScript">
+document.addEventListener('DOMContentLoaded', function() {
+const landingPage = document.getElementById('landing-page');
+const productPage = document.getElementById('product-page');
+const showLandingBtn = document.getElementById('showLanding');
+const showProductBtn = document.getElementById('showProduct');
+const eyewearLink = document.getElementById('eyewearLink');
+const navLinks = document.querySelectorAll('nav a[class*="border-"]');
+function updateNavigation(activeLink) {
+navLinks.forEach(link => {
+link.classList.remove('border-primary', 'text-gray-900');
+link.classList.add('border-transparent', 'text-gray-500');
+});
+if (activeLink) {
+activeLink.classList.remove('border-transparent', 'text-gray-500');
+activeLink.classList.add('border-primary', 'text-gray-900');
+}
+}
+function showLandingPage() {
+landingPage.classList.remove('hidden');
+productPage.classList.add('hidden');
+showLandingBtn.classList.remove('bg-gray-800');
+showLandingBtn.classList.add('bg-primary');
+showProductBtn.classList.remove('bg-primary');
+showProductBtn.classList.add('bg-gray-800');
+updateNavigation(document.querySelector('nav a:first-of-type'));
+}
+function showProductPage() {
+landingPage.classList.add('hidden');
+productPage.classList.remove('hidden');
+showLandingBtn.classList.remove('bg-primary');
+showLandingBtn.classList.add('bg-gray-800');
+showProductBtn.classList.remove('bg-gray-800');
+showProductBtn.classList.add('bg-primary');
+updateNavigation(eyewearLink);
+}
+showLandingBtn.addEventListener('click', showLandingPage);
+showProductBtn.addEventListener('click', showProductPage);
+eyewearLink.addEventListener('click', function(e) {
+e.preventDefault();
+showProductPage();
+});
+});
+</script>
+<script id="backToTopScript">
+document.addEventListener('DOMContentLoaded', function() {
+const backToTopBtn = document.getElementById('backToTop');
+window.addEventListener('scroll', function() {
+if (window.pageYOffset > 300) {
+backToTopBtn.classList.remove('opacity-0');
+backToTopBtn.classList.add('opacity-100');
+} else {
+backToTopBtn.classList.remove('opacity-100');
+backToTopBtn.classList.add('opacity-0');
+}
+});
+backToTopBtn.addEventListener('click', function() {
+window.scrollTo({
+top: 0,
+behavior: 'smooth'
+});
+});
+});
+</script>
+<script id="priceRangeScript">
+document.addEventListener('DOMContentLoaded', function() {
+const priceRange = document.getElementById('priceRange');
+const priceValue = document.getElementById('priceValue');
+if (priceRange && priceValue) {
+priceRange.addEventListener('input', function() {
+priceValue.textContent = '$' + this.value;
+});
+}
+});
+</script>
+</body>
+</html>
